@@ -7,33 +7,33 @@
  */
 int main(void)
 {
-    int i = 1;
+        int i = 1;
 
-    while (i < 90)
-    {
-        if (i < 10)
+        while (i < 90)
         {
-            putchar(0);
-            putchar(i);
-            i++;
+                if (i < 10)
+                {
+                        putchar('0');
+                        putchar(i);
+                        i++;
+                }
+                if (i % 10 == 0)
+                {
+                        int mod = i / 10;
+
+                        mod = mod % 10;
+                        i += mod + 1;
+                        while (i < i+10) 
+                        {
+                                putchar(i);
+                                i++;
+                        }
+                }
+                if (i != 89)
+                {
+                        putchar(',');
+                        putchar(' ');
+                } 
         }
-        if (i % 10 == 0)
-        {
-            int mod = i / 10;
-            
-            mod = mod % 10;
-            i += mod + 1;
-            while (i < i+10) 
-            {
-                putchar(i);
-                i++;
-            }
-        }
-        if (i != 89)
-        {
-            putchar(",");
-            putchar(" ");
-        } 
-    }
-    return(0);
+        return (0);
 }
