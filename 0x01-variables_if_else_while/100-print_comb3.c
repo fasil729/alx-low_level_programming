@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 /**
  * main - Entry Point
  * Description: print all differnt combinations of two digits
@@ -7,33 +8,36 @@
  */
 int main(void)
 {
-        int i = 1;
+        int first = 0;
 
-        while (i < 90)
+        int second = 1;
+
+        int i = 0;
+
+        while (i < 100)
         {
-                if (i < 10)
+                if (second % 10 != 0)
                 {
-                        putchar('0');
-                        putchar(i);
+                        putchar(first + '0');
+                        putchar(second + '0');
                         i++;
-                }
-                if (i % 10 == 0)
-                {
-                        int mod = i / 10;
-
-                        mod = mod % 10;
-                        i += mod + 1;
-                        while (i < i+10) 
+                        second++;
+                        if (i != 89)
                         {
-                                putchar(i);
-                                i++;
+                                putchar(',');
+                                putchar(' ');
+                        }
+                        else
+                        {
+                                putchar('\n');
                         }
                 }
-                if (i != 89)
+                else
                 {
-                        putchar(',');
-                        putchar(' ');
-                } 
+                        second = first + 2;
+                        first++;
+                        i += second;
+                }
         }
         return (0);
 }
