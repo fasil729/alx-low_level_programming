@@ -2,5 +2,6 @@ CC = gcc
 NAME = school
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
+
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
