@@ -4,9 +4,9 @@
 
 def island_perimeter(grid):
     """ calculates the perimeter of the the island """
-    leng = 1
-    j = 0
     perimeter = 0
+    j = 0
+    leng = 1
     while j < len(grid):
         i = 0
         isl_cell = 0
@@ -14,9 +14,10 @@ def island_perimeter(grid):
             if grid[j][i] == 1:
                 isl_cell += 1
                 if i != len(grid[j]) - 1:
-                    if grid[j+1][i]:
-                        perimeter -= 2*leng
+                    if grid[j+1][i] == 1:
+                        perimeter -= leng*2
             i += 1
-        perimeter += (leng*4)*isl_cell - 2*(isl_cell - 1)
+        if isl_cell:
+            perimeter += (leng*4)*isl_cell - 2*(isl_cell - 1)*leng
         j += 1
     return perimeter
